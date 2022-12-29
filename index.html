@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Movie Stream 🎥🎥</title>
+  
+
+  <style>
+    body {
+       text-align: center;
+    }
+    h1,div,video{
+      margin-bottom: 4rem;
+    }
+    video {
+      width:50vw;
+      height:50vh;
+    }
+    input{
+      width:100vw;
+      height:2rem;
+    }
+    label,button,input{
+      font-size:1.5rem;
+    }
+  </style>
+
+</head>
+
+
+
+
+<body>
+
+  <h1 id="title">Movie Stream 🎥🎥</h1>
+  
+  <div>
+    <label for="rpath">Root path:</label><br>
+    <input type="text" id="rpath" name="rpath" placeholder="/home/..."><br>
+    <label for="fpath">File path:</label><br>
+    <input type="text" id="fpath" name="fpath" placeholder="movie.mp4"><br>
+    <button onclick="myclick()">Play It</button>
+  </div>
+  
+  <video controls autoplay>
+    <source src="" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+  <footer>
+    Made with ❤️ in India.
+  </footer>
+</body>
+
+  <script>
+    
+    document.querySelector("source").src="path /home/sidhartha426/Videos/Kaasav (2017)/Kaasav 2017 Marathi.mp4"
+    document.querySelector("video").load();
+    const myclick=()=>{
+      const rpath=document.getElementById("rpath").value;
+      const fpath=document.getElementById("fpath").value;
+      document.querySelector("source").src=`path ${rpath}${fpath}`;
+      document.querySelector("video").load();
+      //document.querySelector("video").play();
+    }
+    document.addEventListener("keydown",(e)=>{
+      if(e.key==="Enter"){
+        myclick();  
+      }
+    });
+    
+  </script>
+
+</html>
